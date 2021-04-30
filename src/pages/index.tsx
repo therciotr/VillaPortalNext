@@ -1,6 +1,7 @@
 import { Flex, FormControl, Box } from "@chakra-ui/react";
 import Accomodation from "../components/Accommodation";
 import Header from "../components/Header";
+import Carousel from "../components/Carousel";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Box>
         <Header />
         <Accomodation />
+        <Carousel />
       </Box>
     </FormControl>
   );
