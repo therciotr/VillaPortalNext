@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { Children, CSSProperties } from "react";
 import { Box, SimpleGrid, Image, Flex, Stack } from "@chakra-ui/react";
 import { Carousel } from "react-responsive-carousel";
 
@@ -31,7 +31,6 @@ export default function CarouselComponent() {
               infiniteLoop
               autoPlay
               interval={3000}
-              style={{ height: "420px" }}
               renderArrowPrev={(onClickHandler, hasPrev, label) =>
                 hasPrev && (
                   <button
@@ -97,5 +96,3 @@ export default function CarouselComponent() {
 
     );
 }
-
-// export default SimpleGrid;

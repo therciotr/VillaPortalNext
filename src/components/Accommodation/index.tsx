@@ -61,12 +61,12 @@ export default function Accomodation() {
             <Image src="/images/Wifi.svg" alt="Breakfast" />
           </Flex>
           <Text
-              mt="0px"
+              mt="-30px"
               color="#8A99A8"
               fontFamily="Averia Libre"
               fontSize="20px"
             >
-              Café da manhã grátis.
+              Wifi grátis.
             </Text>
             <Text w="180px" textAlign="center" color="#CBCDCF">O melhor café da manhã da região</Text>
             </Flex>
