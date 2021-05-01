@@ -1,74 +1,399 @@
-import { Image, Box, Container, Text, Badge } from "@chakra-ui/react"
+import { Children, CSSProperties } from "react";
+import { Box, SimpleGrid, Image, Flex, Stack, Container, VStack, Text, Button, ButtonGroup } from "@chakra-ui/react";
+import { Carousel } from "react-responsive-carousel";
+
+import More from '../../pages/seeMore/[slug]';
 
 
-export default function AirbnbExample() {
-
-        
-const property = {
-    imageUrl: "https://bit.ly/2Z4KKcF",
-    imageAlt: "Rear view of modern home with pool",
-    beds: 3,
-    baths: 2,
-    title: "Modern home in city center in the heart of historic Los Angeles",
-    formattedPrice: "$1,900.00",
-    reviewCount: 34,
-    rating: 4,
+type More = {
+  title: string;
 }
 
-return (
-    <Box bg="tomato" maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" ml="130px" mt="90px" mb="90px" >
-    <Image src={property.imageUrl} alt={property.imageAlt} />
-    <Text mr="10px">teste</Text> /*testando o posicionamento do texto*/
+type HomeProps = {
 
-    <Box p="6">
-        <Box d="flex" alignItems="baseline">
-        <Badge borderRadius="full" px="2" colorScheme="teal">
-            New
-        </Badge>
-        <Box
-            color="gray.500"
-            fontWeight="semibold"
-            letterSpacing="wide"
-            fontSize="xs"
-            textTransform="uppercase"
-            ml="2"
-            
-        >
-            {property.beds} beds &bull; {property.baths} baths
-        </Box>
-        </Box>
+  allRooms: More[];  
 
-        <Box
-        mt="1"
-        fontWeight="semibold"
-        as="h4"
-        lineHeight="tight"
-        isTruncated
-        >
-        {property.title}
-        </Box>
+}
 
-        <Box>
-        {property.formattedPrice}
-        <Box as="span" color="gray.600" fontSize="sm">
-            / wk
-        </Box>
-        </Box>
+export default function CarouselComponentRooms() {
 
-        <Box d="flex" mt="2" alignItems="center">
-        {/* {Array(5)
-            .fill("")
-            .map((_, i) => (
-            <StarIcon
-                key={i}
-                color={i < property.rating ? "teal.500" : "gray.300"}
-            />
-            ))} */}
-        <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {property.reviewCount} reviews
-        </Box>
-        </Box>
-    </Box>
-    </Box>
-);
+    const indicatorStyles: CSSProperties = {
+        background: "#F1FFFC",
+        width: 16,
+        height: 16,
+        borderRadius: 8,
+        display: "inline-block",
+        margin: "0 8px",
+      };
+      const arrowStyles: CSSProperties = {
+        position: "absolute",
+        zIndex: 2,
+        top: "calc(50% - 15px)",
+        width: 30,
+        height: 30,
+        cursor: "pointer",
+      };
+
+      return(
+
+        <VStack alignContent="left" >
+        <Container maxW="container.xl">
+            <Flex direction="column" h={430}>
+        <SimpleGrid h={145} align="left">
+          <Stack spacing="14">
+            <Flex >  
+            <Carousel
+              width="50%"
+              dynamicHeight
+              infiniteLoop
+              autoPlay
+              interval={3000}
+              renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                hasPrev && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    style={{ ...arrowStyles, left: 15 }}
+                  >
+                    <Image 
+                      src="./images/arrowLeft.svg" 
+                      alt="Arrow Left" 
+                      h="35px" 
+                      mr="-200px" 
+                      mt="20px"
+                    />
+                  </button>
+                )
+              }
+                renderArrowNext={(onClickHandler, hasNext, label) =>
+                hasNext && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    style={{ 
+                      ...arrowStyles, 
+                      right: 15 
+                    }}
+                  >
+                    <Image 
+                      src="./images/arrowRight.svg" 
+                      alt="Arrow Right" 
+                      color="#52C1FF" 
+                      h="35px" 
+                      ml="-200px" 
+                      mt="20px"
+                    />
+                  </button>
+                )
+              }
+              renderIndicator={(onClickHandler, isSelected, index, label) => {
+                if (isSelected) {
+                  return (
+                    <li
+                      style={{ ...indicatorStyles, background: "#52C1FF" }}
+                      aria-label={`Selected: ${label} ${index + 1}`}
+                      title={`Selected: ${label} ${index + 1}`}
+                    />
+                  );
+                }
+                return (
+                  <li
+                    style={indicatorStyles}
+                    onClick={onClickHandler}
+                    onKeyDown={onClickHandler}
+                    value={index}
+                    key={index}
+                    role="button"
+                    tabIndex={0}
+                    title={`${label} ${index + 1}`}
+                    aria-label={`${label} ${index + 1}`}
+                  />
+                );
+              }}
+            >
+              <Box>
+                <Image src="/images/image1.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+              <Box>
+                <Image src="/images/image2.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+              <Box>
+                <Image src="/images/image3.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+            </Carousel>
+            <Container 
+              maxW="container.lg" 
+              bg="#C4C4C4" 
+              mt="50px" 
+              w="100vh" 
+              ml="50%" 
+              position="absolute" 
+              h="201px" 
+              right="150px"
+            >
+            <Text align="center" ml="10px">teste</Text>
+            </Container>
+            </Flex>
+          </Stack>
+        </SimpleGrid>
+
+
+
+
+        <Stack spacing="14" mt="100px">
+            <Flex >  
+            <Carousel
+              width="50%"
+              dynamicHeight
+              infiniteLoop
+              autoPlay
+              interval={3000}
+              renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                hasPrev && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    style={{ ...arrowStyles, left: 15 }}
+                  >
+                    <Image 
+                      src="./images/arrowLeft.svg" 
+                      alt="Arrow Left" 
+                      h="35px" 
+                      mr="-200px" 
+                      mt="20px"
+                    />
+                  </button>
+                )
+              }
+                renderArrowNext={(onClickHandler, hasNext, label) =>
+                hasNext && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    style={{ 
+                      ...arrowStyles, 
+                      right: 15 
+                    }}
+                  >
+                    <Image 
+                      src="./images/arrowRight.svg" 
+                      alt="Arrow Right" 
+                      color="#52C1FF" 
+                      h="35px" 
+                      ml="-200px" 
+                      mt="20px"
+                    />
+                  </button>
+                )
+              }
+              renderIndicator={(onClickHandler, isSelected, index, label) => {
+                if (isSelected) {
+                  return (
+                    <li
+                      style={{ ...indicatorStyles, background: "#52C1FF" }}
+                      aria-label={`Selected: ${label} ${index + 1}`}
+                      title={`Selected: ${label} ${index + 1}`}
+                    />
+                  );
+                }
+                return (
+                  <li
+                    style={indicatorStyles}
+                    onClick={onClickHandler}
+                    onKeyDown={onClickHandler}
+                    value={index}
+                    key={index}
+                    role="button"
+                    tabIndex={0}
+                    title={`${label} ${index + 1}`}
+                    aria-label={`${label} ${index + 1}`}
+                  />
+                );
+              }}
+            >
+              <Box>
+                <Image src="/images/image1.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+              <Box>
+                <Image src="/images/image2.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+              <Box>
+                <Image src="/images/image3.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+            </Carousel>
+            <Container 
+              maxW="container.lg" 
+              bg="#C4C4C4" 
+              mt="50px" 
+              w="100vh" 
+              ml="50%" 
+              position="absolute" 
+              h="201px" 
+              right="150px"
+            >
+            <Text align="center" ml="10px">teste</Text>
+            </Container>
+            </Flex>
+          </Stack>
+
+
+
+
+
+
+
+
+
+          
+      </Flex>
+
+
+
+
+
+
+      <Stack spacing="14" mt="60px">
+            <Flex >  
+            <Carousel
+              width="50%"
+              dynamicHeight
+              infiniteLoop
+              autoPlay
+              interval={3000}
+              renderArrowPrev={(onClickHandler, hasPrev, label) =>
+                hasPrev && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    style={{ ...arrowStyles, left: 15 }}
+                  >
+                    <Image 
+                      src="./images/arrowLeft.svg" 
+                      alt="Arrow Left" 
+                      h="35px" 
+                      mr="-200px" 
+                      mt="20px"
+                    />
+                  </button>
+                )
+              }
+                renderArrowNext={(onClickHandler, hasNext, label) =>
+                hasNext && (
+                  <button
+                    type="button"
+                    onClick={onClickHandler}
+                    title={label}
+                    style={{ 
+                      ...arrowStyles, 
+                      right: 15 
+                    }}
+                  >
+                    <Image 
+                      src="./images/arrowRight.svg" 
+                      alt="Arrow Right" 
+                      color="#52C1FF" 
+                      h="35px" 
+                      ml="-200px" 
+                      mt="20px"
+                    />
+                  </button>
+                )
+              }
+              renderIndicator={(onClickHandler, isSelected, index, label) => {
+                if (isSelected) {
+                  return (
+                    <li
+                      style={{ ...indicatorStyles, background: "#52C1FF" }}
+                      aria-label={`Selected: ${label} ${index + 1}`}
+                      title={`Selected: ${label} ${index + 1}`}
+                    />
+                  );
+                }
+                return (
+                  <li
+                    style={indicatorStyles}
+                    onClick={onClickHandler}
+                    onKeyDown={onClickHandler}
+                    value={index}
+                    key={index}
+                    role="button"
+                    tabIndex={0}
+                    title={`${label} ${index + 1}`}
+                    aria-label={`${label} ${index + 1}`}
+                  />
+                );
+              }}
+            >
+              <Box>
+                <Image src="/images/image1.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+              <Box>
+                <Image src="/images/image2.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+              <Box>
+                <Image src="/images/image3.jpg" 
+                    style={{ height: "250px", width: "400px" }} 
+                    objectFit="cover" 
+                    mt="50px"
+                />
+              </Box>
+            </Carousel>
+            <Container 
+              maxW="container.lg" 
+              bg="#C4C4C4" 
+              mt="50px" 
+              w="100vh" 
+              ml="50%" 
+              position="absolute" 
+              h="201px" 
+              right="150px"
+            >
+            <Text align="center" ml="10px">teste</Text>
+            </Container>
+            </Flex>
+          </Stack>
+
+          <Box align="center">    
+          <Button bg="#FEC200" color="#FFFFFF" >Ver mais...</Button>
+          </Box>
+        </Container>
+        </VStack>
+      );
 }
