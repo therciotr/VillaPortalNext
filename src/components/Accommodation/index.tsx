@@ -12,7 +12,7 @@ import {
 export default function Accomodation() {
   return (
     <Flex align="center" justify="center" direction="column">
-      <Box mt="250">
+      <Box mt="250" alignItems="center" alignContent="center">
         <Text
           fontSize="36px"
           color="#FEC200"
@@ -24,6 +24,7 @@ export default function Accomodation() {
       </Box>
       <SimpleGrid>
         <HStack>
+          <Box  mt="10px">
           <Flex direction="column" align="center" mr="-10" justify="center">
             <Flex
               w="101px"
@@ -32,24 +33,29 @@ export default function Accomodation() {
               borderRadius="30px"
               align="center"
               justify="center"
-              mt="100px"
+              mt="90px"
             >
+  
               <Image src="/images/Breakfast.svg" alt="Breakfast" />
             </Flex>
             <Text
-              mt="40px"
+              mt="20px"
               color="#8A99A8"
               fontFamily="Averia Libre"
               fontSize="20px"
             >
               Café da manhã grátis.
             </Text>
+            
             <Text w="180px" textAlign="center" color="#CBCDCF">O melhor café da manhã da região</Text>
           </Flex>
+          </Box>
           <Flex>
             <Image src="/images/Line.svg" alt="Breakfast" />
           </Flex>
-          <Flex direction="column" align="center" mr="-10" justify="center">
+          {/* begin icon wifi */}
+          <Box alignContent="center">
+          <Flex direction="column" align="center" justify="center" ml="-20px" mr="-15px">
           <Flex
             w="139px"
             h="139px"
@@ -57,15 +63,16 @@ export default function Accomodation() {
             borderRadius="30px"
             align="center"
             justify="center"
+            mt="70px"
           >
             <Box mt="20px">
             <Image src="/images/Wifi.svg" alt="Breakfast" />
             </Box>
             
           </Flex>
-          <Box>
+          <Box justify="center">
           <Text
-              mt="30px"
+              mt="20px"
               color="#8A99A8"
               fontFamily="Averia Libre"
               fontSize="20px"
@@ -73,12 +80,14 @@ export default function Accomodation() {
               Wifi grátis.
             </Text>
             </Box>
+           {/* finish icon wifi */}
             <Box mt="3px">
             <Text w="180px" textAlign="center" color="#CBCDCF">Acesse suas redes socias a vontade</Text>
             </Box>
             </Flex>
+            </Box>
           <Flex>
-            <Image src="/images/Line.svg" alt="Breakfast" />
+            <Image src="/images/Line.svg" alt="Breakfast"/>
           </Flex>
           <Flex
             w="101px"
@@ -88,8 +97,26 @@ export default function Accomodation() {
             align="center"
             justify="center"
           >
-            <Image src="/images/ServiceRoom.svg" alt="Breakfast" />
+            
+            <Box>
+            <Image src="/images/ServiceRoom.svg" alt="Breakfast"/>
+            </Box>
           </Flex>
+
+          <Flex>
+          <Box direction="column" align="center" ml="-40" justify="center" mt="182px">
+          <Text
+              mt="40px"
+              color="#8A99A8"
+              fontFamily="Averia Libre"
+              fontSize="20px"
+            >
+              Café da manhã grátis.
+            </Text>
+            <Text w="180px" textAlign="center" color="#CBCDCF">O melhor café da manhã da região</Text>
+          </Box>
+          </Flex>
+          
         </HStack>
       </SimpleGrid>
     </Flex>

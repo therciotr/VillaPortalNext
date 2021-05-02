@@ -22,7 +22,7 @@ export default function CarouselComponent() {
 
     return(
 
-        <Flex direction="column" h={430}>
+        <Flex direction="column" h={430} mt="80px">
         <SimpleGrid h={145} align="center">
           <Stack spacing="14">
             <Carousel

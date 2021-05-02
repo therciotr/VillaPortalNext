@@ -19,11 +19,14 @@ export default function CarouselComponentRooms() {
 
     const indicatorStyles: CSSProperties = {
         background: "#F1FFFC",
-        width: 16,
-        height: 16,
+        width: 12,
+        height: 12,
         borderRadius: 8,
         display: "inline-block",
-        margin: "0 8px",
+        alignItems: "center",
+        alignContent:"center",
+        margin: "0px 8px 1px 10px",
+        // marginLeft: "100px"
       };
       const arrowStyles: CSSProperties = {
         position: "absolute",
@@ -32,6 +35,7 @@ export default function CarouselComponentRooms() {
         width: 30,
         height: 30,
         cursor: "pointer",
+        
       };
 
       return(
@@ -39,15 +43,15 @@ export default function CarouselComponentRooms() {
         <VStack alignContent="left" >
         <Container maxW="container.xl">
             <Flex direction="column" h={430}>
-        <SimpleGrid h={145} align="left">
+        <SimpleGrid h={145} align="left" ml="20px">
           <Stack spacing="14">
             <Flex >  
             <Carousel
               width="50%"
               dynamicHeight
               infiniteLoop
-              autoPlay
-              interval={3000}
+              // autoPlay
+              // interval={3000}
               renderArrowPrev={(onClickHandler, hasPrev, label) =>
                 hasPrev && (
                   <button
@@ -82,7 +86,7 @@ export default function CarouselComponentRooms() {
                       alt="Arrow Right" 
                       color="#52C1FF" 
                       h="35px" 
-                      ml="-200px" 
+                      ml="-380px" 
                       mt="20px"
                     />
                   </button>
@@ -153,15 +157,15 @@ export default function CarouselComponentRooms() {
 
 
 
-
-        <Stack spacing="14" mt="100px">
+        <SimpleGrid ml="20px">        
+        <Stack spacing="14" mt="100px" >
             <Flex >  
             <Carousel
               width="50%"
               dynamicHeight
               infiniteLoop
-              autoPlay
-              interval={3000}
+              // autoPlay
+              // interval={3000}
               renderArrowPrev={(onClickHandler, hasPrev, label) =>
                 hasPrev && (
                   <button
@@ -196,7 +200,7 @@ export default function CarouselComponentRooms() {
                       alt="Arrow Right" 
                       color="#52C1FF" 
                       h="35px" 
-                      ml="-200px" 
+                      ml="-380px" 
                       mt="20px"
                     />
                   </button>
@@ -264,6 +268,8 @@ export default function CarouselComponentRooms() {
             </Flex>
           </Stack>
 
+          </SimpleGrid>
+
 
 
 
@@ -279,15 +285,15 @@ export default function CarouselComponentRooms() {
 
 
 
-
+      <SimpleGrid ml="20px">        
       <Stack spacing="14" mt="60px">
             <Flex >  
             <Carousel
               width="50%"
               dynamicHeight
               infiniteLoop
-              autoPlay
-              interval={3000}
+              // autoPlay
+              // interval={3000}
               renderArrowPrev={(onClickHandler, hasPrev, label) =>
                 hasPrev && (
                   <button
@@ -322,7 +328,7 @@ export default function CarouselComponentRooms() {
                       alt="Arrow Right" 
                       color="#52C1FF" 
                       h="35px" 
-                      ml="-200px" 
+                      ml="-380px" 
                       mt="20px"
                     />
                   </button>
@@ -393,6 +399,7 @@ export default function CarouselComponentRooms() {
           <Box align="center">    
           <Button bg="#FEC200" color="#FFFFFF" >Ver mais...</Button>
           </Box>
+          </SimpleGrid>
         </Container>
         </VStack>
       );
