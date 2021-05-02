@@ -58,17 +58,24 @@ export default function Accomodation() {
             align="center"
             justify="center"
           >
+            <Box mt="20px">
             <Image src="/images/Wifi.svg" alt="Breakfast" />
+            </Box>
+            
           </Flex>
+          <Box>
           <Text
-              mt="-30px"
+              mt="30px"
               color="#8A99A8"
               fontFamily="Averia Libre"
               fontSize="20px"
             >
               Wifi grátis.
             </Text>
-            <Text w="180px" textAlign="center" color="#CBCDCF">O melhor café da manhã da região</Text>
+            </Box>
+            <Box mt="3px">
+            <Text w="180px" textAlign="center" color="#CBCDCF">Acesse suas redes socias a vontade</Text>
+            </Box>
             </Flex>
           <Flex>
             <Image src="/images/Line.svg" alt="Breakfast" />
