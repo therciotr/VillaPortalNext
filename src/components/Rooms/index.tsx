@@ -1,25 +1,18 @@
-import { Box } from '@chakra-ui/layout';
-import More from '../../pages/seeMore/[slug]';
-import { AccomodationComponents } from "./AccomodationsComponents";
 
+import {  Flex, Text, SimpleGrid, Box, Stack } from "@chakra-ui/react";
+import React from "react";
+import { CardsAccomodation } from "./CardsAccomodation";
+import { CarouselComponent } from "./CarouselComponent";
 
-type More = {
-  title: string;
-}
-
-type HomeProps = {
-
-  allRooms: More[];  
-
-}
-
-export default function CarouselComponentRooms() {
-
-      return(
-        
-        <Box h="200px">
-        <AccomodationComponents />
-        </Box>
-
-      );
+export function Accomodation() {
+    
+  return (
+    <Flex justify="center" mt="24px" direction="column" align="center">
+      <Stack spacing="24px" align="center">
+      <CardsAccomodation />
+      <CardsAccomodation />
+      <CardsAccomodation />
+      </Stack>
+    </Flex>
+  );
 }

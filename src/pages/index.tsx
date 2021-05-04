@@ -1,18 +1,19 @@
-import { Flex, FormControl, Box } from "@chakra-ui/react";
-import Accomodation from "../components/Accommodation";
+import { Flex, FormControl, Box, Accordion } from "@chakra-ui/react";
+import Inn from "../components/Accommodation";
 import Header from "../components/Header";
 import Carousel from "../components/Carousel";
-import Rooms from "../components/Rooms";
+import { Accomodation } from "../components/Rooms";
+
 
 export default function Home() {
   return (
-    <FormControl>
-      <Box>
+    <>
+      
         <Header />
-        <Accomodation />
+        <Inn /> 
         <Carousel />
-        <Rooms />
-      </Box>
-    </FormControl>
+        <Accomodation />
+     
+    </>
   );
 }

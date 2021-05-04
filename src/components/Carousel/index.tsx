@@ -22,11 +22,11 @@ export default function CarouselComponent() {
 
     return(
 
-        <Flex direction="column" h={430} mt="80px">
+        <Flex direction="column" h={["250px","430"]} mt="80px">
         <SimpleGrid h={145} align="center">
           <Stack spacing="14">
             <Carousel
-              width="80%"
+              width="100%"
               dynamicHeight
               infiniteLoop
               autoPlay
@@ -81,13 +81,13 @@ export default function CarouselComponent() {
               }}
             >
               <Box>
-                <Image src="/images/image1.jpg" style={{ height: "430px" }} />
+                <Image src="/images/image1.jpg" boxSize={["250px", "430px"]} />
               </Box>
               <Box>
-                <Image src="/images/image2.jpg" style={{ height: "430px" }} />
+                <Image src="/images/image2.jpg" boxSize={["250px", "430px"]} />
               </Box>
               <Box>
-                <Image src="/images/image3.jpg" style={{ height: "430px" }} />
+                <Image src="/images/image3.jpg" boxSize={["250px", "430px"]} />
               </Box>
             </Carousel>
           </Stack>
