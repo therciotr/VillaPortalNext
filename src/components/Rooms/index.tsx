@@ -1,6 +1,7 @@
 
 import {  Flex, Text, SimpleGrid, Box, Stack } from "@chakra-ui/react";
 import React from "react";
+import { ButtonSeeMore } from "./ButtonSeeMore";
 import { CardsAccomodation } from "./CardsAccomodation";
 import { CarouselComponent } from "./CarouselComponent";
 
@@ -12,6 +13,7 @@ export function Accomodation() {
       <CardsAccomodation />
       <CardsAccomodation />
       <CardsAccomodation />
+      <ButtonSeeMore />
       </Stack>
     </Flex>
   );

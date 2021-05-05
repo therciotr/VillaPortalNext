@@ -64,7 +64,15 @@ export default function Accomodation() {
                     </Text>
                   </Flex>
                 </Box>
-       
+                <Flex>
+                  <Image
+                    src="/images/Line.svg"
+                    alt="Breakfast"
+                    alignItems="center"
+                    mt="0px"
+                  />
+                </Flex>
+
                 {/* begin icon wifi */}
                 <Box alignContent="center">
                   <Flex
@@ -106,8 +114,17 @@ export default function Accomodation() {
                   </Flex>
                 </Box>
                 <Flex>
-                  <Image src="/images/Line.svg" alt="Breakfast" />
+                  <Image src="/images/Line.svg" alt="Breakfast"/>
                 </Flex>
+                {/* <Flex>
+                  <Image
+                    src="/images/Line.svg"
+                    alt="Breakfast"
+                    alignItems="center"
+                    mt="100px"
+                    bg="pink"
+                  />
+                </Flex> */}
                 <Flex
                   w="101px"
                   h="101px"
@@ -149,15 +166,9 @@ export default function Accomodation() {
       )}
       {!isWideVersion && (
         <Box>
-        <SimpleGrid direction="column">
-
+          <SimpleGrid direction="column">
             <Box mt="10px">
-              <Flex
-                direction="column"
-                align="center"
-                mr="-10"
-                justify="center"
-              >
+              <Flex direction="column" align="center" mr="-10" justify="center">
                 <Flex
                   w="101px"
                   h="101px"
@@ -183,9 +194,9 @@ export default function Accomodation() {
                 </Text>
               </Flex>
             </Box>
-            <Flex>
-              <Image src="/images/Line.svg" alt="Breakfast" />
-            </Flex>
+            {/* <Flex>
+              <Image src="/images/Line.svg" alt="Breakfast" alignItems="center" mt="100px" bg="pink"/>
+            </Flex> */}
             {/* begin icon wifi */}
             <Box alignContent="center">
               <Flex
@@ -226,7 +237,7 @@ export default function Accomodation() {
                 </Box>
               </Flex>
             </Box>
-           
+
             <Flex
               w="101px"
               h="101px"
@@ -261,9 +272,8 @@ export default function Accomodation() {
                 </Text>
               </Box>
             </Flex>
-
-        </SimpleGrid>
-      </Box>
+          </SimpleGrid>
+        </Box>
       )}
     </Flex>
   );
