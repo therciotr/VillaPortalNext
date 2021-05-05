@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Carousel from "../components/Carousel";
 import { Accomodation } from "../components/Rooms";
 import { Map } from "../components/Map";
+import { MenuItens } from "../components/Header/MenuItens";
 
 
 export default function Home() {
@@ -10,10 +11,12 @@ export default function Home() {
     <>
       
         <Header />
+        <MenuItens />
         <Inn /> 
         <Carousel />
         <Accomodation />
         <Map />
+        
      
     </>
   );
