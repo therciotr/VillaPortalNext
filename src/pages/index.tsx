@@ -5,7 +5,6 @@ import { Accomodation } from "../components/Rooms";
 import { Map } from "../components/Map";
 import Footer from "../components/Footer";
 import AllRights from "../components/AllRights";
-// import { MenuItens } from "../components/Header/MenuItens";
 
 
 export default function Home() {

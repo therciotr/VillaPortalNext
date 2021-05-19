@@ -11,8 +11,6 @@ export function Accomodation() {
     <Flex justify="center" mt="24px" direction="column" align="center">
       <Stack spacing="24px" align="center">
       <CardsAccomodation />
-      <CardsAccomodation />
-      <CardsAccomodation />
       <ButtonSeeMore />
       </Stack>
     </Flex>
