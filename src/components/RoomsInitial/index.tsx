@@ -7,14 +7,14 @@ import { CardsAccomodation } from "./CardsAccomodation";
 
 
 
-export function Accomodation({ acomodacaos, seemore}: IPropsVilla ) {
+export function AccomodationInitial({ acomodacaosLimited, seemore}: IPropsVilla ) {
 
   return (
     <Flex justify="center" mt="24px" direction="column" align="center">
       
       <Stack spacing="24px" align="center">
       <Text
-              fontSize={["24px", "36px"]}
+              fontSize={["", "36px"]}
               color="#FEC200"
               fontFamily="Averia Libre"
               mb={["10px","40px"]}
@@ -22,7 +22,7 @@ export function Accomodation({ acomodacaos, seemore}: IPropsVilla ) {
             >
               Acomodações
             </Text>
-      <CardsAccomodation acomodacaos={acomodacaos} seemore={false} />
+      <CardsAccomodation  acomodacaosLimited={acomodacaosLimited}/>
       <Flex mt={10}>
         {!seemore && (
           <ButtonSeeMore />

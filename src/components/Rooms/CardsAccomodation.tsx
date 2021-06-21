@@ -1,15 +1,33 @@
-import { Flex, Box, Text } from "@chakra-ui/react";
-import { CarouselComponent } from "./CarouselComponent";
+import { Flex, Box, Text, Image } from "@chakra-ui/react";
+import Link from 'next/link'
+import { base_url } from "../../api";
+import { IPropsVilla } from "../../types";
 
-export function CardsAccomodation() {
+
+export function CardsAccomodation({ acomodacaos }: IPropsVilla) {
   return (
-    <Flex align="center" bgColor="#D7D7D7" w="95%" mt="20%">
-      <Flex w={["50%","36%"]} bgColor="blue">
-        <CarouselComponent />
-      </Flex>
-      <Box>
-        <Text>Testando</Text>
-      </Box>
-    </Flex>
-  );
+    <>
+    {acomodacaos.map(({ id, Descricao, imagem, slug }) => (
+      <Link href={`/acomodacoes/${slug}`} key={id}>
+        <Box align="center" bgColor="#F2F2F2" w="80%" mt="20%" borderRadius={10} borderWidth={1} borderColor="#A7A7A7">
+          <Flex w={["100%", "100%"]} bgColor="#D7D7D7" borderRadius={10}>
+            <Flex w="30%" >
+              <Image
+                src={`${base_url}${imagem[0].url}`}
+                boxSize={["100px", "100%"]}
+                objectFit="cover"
+                borderTopLeftRadius={10}
+                borderBottomLeftRadius={10}
+              />
+            </Flex>
+            <Flex pl={10} pr={10} pt={5} w="70%">
+              <Text fontSize={[9, 18]} dangerouslySetInnerHTML={{ __html: Descricao }} noOfLines={4} />
+            </Flex>
+          </Flex>
+        </Box>
+      </Link>
+    ))}
+    </>
+    )
+  
 }

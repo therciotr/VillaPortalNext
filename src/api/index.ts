@@ -1,0 +1,1 @@
+export const base_url = "http://pousadavillaportal.com.br:1337"

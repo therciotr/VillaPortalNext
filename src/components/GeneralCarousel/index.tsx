@@ -5,8 +5,16 @@ import { Carousel } from "react-responsive-carousel";
 import { IPropsVilla } from '../../types/index';
 import { base_url } from '../../api';
 
-export default function CarouselComponent({fotos}: IPropsVilla) {
+interface IPropsImagem {
+    url: string;
+}
 
+interface IProps {
+    imagem: IPropsImagem[];
+}
+
+export default function GeneralCarousel({imagem}: IProps) {
+    console.log(imagem)
     const indicatorStyles: CSSProperties = {
         background: "#F1FFFC",
         width: 16,
@@ -23,12 +31,13 @@ export default function CarouselComponent({fotos}: IPropsVilla) {
         height: 30,
         cursor: "pointer",
       };
-
+      console.log(imagem)
     return(
 
-        <Flex direction="column" h={["250px","430px"]} mt="80px">
+        <Flex direction="column" h={["250px","430"]} mt="80px">
         <SimpleGrid h={145} align="center">
           <Stack spacing="14">
+              
             <Carousel
               width="80%"
               dynamicHeight
@@ -43,7 +52,7 @@ export default function CarouselComponent({fotos}: IPropsVilla) {
                     title={label}
                     style={{ ...arrowStyles, left: 15 }}
                   >
-                    <Image src="./images/arrowLeft.svg" alt="Arrow Left" />
+                    <Image src="/images/arrowLeft.svg" alt="Arrow Left" />
                   </button>
                 )
               }
@@ -55,7 +64,7 @@ export default function CarouselComponent({fotos}: IPropsVilla) {
                     title={label}
                     style={{ ...arrowStyles, right: 15 }}
                   >
-                    <Image src="./images/arrowRight.svg" alt="Arrow Right" color="#52C1FF"/>
+                    <Image src="/images/arrowRight.svg" alt="Arrow Right" color="#52C1FF"/>
                   </button>
                 )
               }
@@ -84,11 +93,11 @@ export default function CarouselComponent({fotos}: IPropsVilla) {
                 );
               }}
             >
-              {fotos.map(({id, Titulo, imagem}) => (
-                <Box key={id}>
-                <Image src={`${base_url}${imagem.url}`} boxSize={["250px", "430px"]} objectFit="cover"/>
+              {imagem.map(({url}) => (
+                <Box >
+                <Image src={`${base_url}${url}`} boxSize={["250px", "430px"]} objectFit="cover"/>
               </Box>
-              ))}
+             ))}
               
            
             </Carousel>

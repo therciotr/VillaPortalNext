@@ -52,15 +52,17 @@ export default function Header() {
             <Button
               ml={["0", "90px"]}
               mt="40px"
-              bg="#FEC200"
+              bgColor="#FEC200"
               w={["80%", "357px"]}
               h="62px"
               justify="center"
               align="center"
               pt="15px"
               pb="15px"
+              _hover={{ bg: "#EDB500" }}
               borderRadius="20px"
               boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25);"
+            
             >
               <Image src="/images/Meet.svg" alt="Meet" h="29px" w="20px" />
               <Text
@@ -114,6 +116,7 @@ export default function Header() {
               align="center"
               pt="15px"
               pb="15px"
+              _hover={{ bg: "#EDB500" }}
               borderRadius="20px"
               boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25);"
             >
